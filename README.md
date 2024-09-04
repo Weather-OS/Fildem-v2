@@ -34,11 +34,12 @@ You can build a working package with `makepkg -si`
 
 #### Dependencies
   Arch: `bamf appmenu-gtk-module libkeybinder3 libdbusmenu-gtk2 libdbusmenu-gtk3 libdbusmenu-qt5`   
-  Ubuntu `libbamf3-dev bamfdaemon libkeybinder-3.0-dev appmenu-gtk2-module appmenu-gtk3-module unity-gtk-module-common`   
+  Ubuntu `libbamf3-dev bamfdaemon libkeybinder-3.0-dev appmenu-gtk2-module appmenu-gtk3-module unity-gtk-module-common` 
+  Debian :   `libbamf3-dev bamfdaemon libkeybinder-3.0-dev appmenu-gtk2-module appmenu-gtk3-module`
 
 Install the extension by moving `fildemGMenu@gonza.com` to `~/.local/share/gnome-shell/extensions/`.   
 
-Run `setup.py install --optimize=1`.
+Run `sudo python3 setup.py install --optimize=1`.
 
 You will be asked if you want to run fildem at startup, This is completely optional, but it is recommended.
 
@@ -58,6 +59,18 @@ In order for the application to work, you must configure the following files (ap
 [Settings]
 gtk-modules="appmenu-gtk-module"
 ```
+- Create a `fildem.desktop` file at `~/.config/autostart/`
+- Paste the following code to the `fildem.desktop` file : 
+   ```
+    [Desktop Entry]
+    Type=Application
+    Exec=fildem
+    Hidden=false
+    NoDisplay=false
+    X-GNOME-Autostart-enabled=true
+    Name=Fildem
+    Comment=Run Fildem on startup
+    ```
 
 ## Running
 
